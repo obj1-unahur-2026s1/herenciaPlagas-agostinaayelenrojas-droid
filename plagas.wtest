@@ -1,0 +1,17 @@
+import plagas.*
+describe "algunos test" {
+  test "una mascota pierde salud si la plaga transmite enfermedades" {
+    const mascota = new Mascota(nivelDeSalud = 300)
+    const pulga = new Pulga(poblacion = 20)
+    mascota.recibirAtaque(pulga)
+    assert.equals(260, mascota.nivelDeSalud())
+  }
+  test "un barrio es copado si tiene mas elementos buenos que malos" {
+    const barrio = new Barrio(elementos = [
+        new Mascota(nivelDeSalud = 300),
+        new Mascota(nivelDeSalud = 280),
+        new Mascota(nivelDeSalud = 100)
+    ])
+        assert.that(barrio.esCopado())
+    }
+}
